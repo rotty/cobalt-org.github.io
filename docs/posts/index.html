@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+  <title>Cobalt::Docs::Posts</title>
+<link rel="stylesheet" href="/public/css/styles.css">
+
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+  <div class="primary">
+    <h1><a href="/">
+      <img src="/public/images/logo.svg" width="50" />obalt
+    </a></h1>
+  </div>
+  <div class="secondary">
+      <nav>
+    <a href="/getting-started" class="button start"><span>Start</span></a>
+    <a href="/docs" class="button docs"><span>Reference</span></a>
+    <a href="/news" class="button news"><span>News</span></a>
+    <a href="https://github.com/cobalt-org/cobalt.rs/blob/master/CONTRIBUTING.md" class="button contrib"><span>Contribute</span></a>
+    <a href="/help" class="button help"><span>Help!</span></a>
+  </nav>
+  </div>
+</div>
+
+    </header>
+    <main class="flex_main">
+      <section class="docs">
+        <div class="inner">
+          <aside>
+            <p>Basics</p>
+            <ul>
+              <li><a  href="/docs/install">Install</a></li>
+              <li><a  href="/docs/usage">Usage</a></li>
+              <li><a  href="/docs/directory">Directory Structure</a></li>
+              <li><a  href="/docs/config">Configuration</a></li>
+            </ul>
+            <hr align="left">
+            <p>Content</p>
+            <ul>
+              <li><a  href="/docs/pages">Pages</a></li>
+              <li><a class="active" href="/docs/posts">Posts</a></li>
+              <li><a  href="/docs/front">Frontmatter</a></li>
+              <li><a  href="/docs/variables">Variables</a></li>
+              <li><a  href="/docs/permalink">Permalink</a></li>
+              <li><a  href="/docs/layouts">Layouts</a></li>
+              <li><a  href="/docs/assets">Assets</a></li>
+              <li><a  href="/docs/data">Data files</a></li>
+            </ul>
+            <hr align="left">
+            <p>Misc</p>
+            <ul>
+              <li><a  href="/docs/faq">FAQ</a></li>
+              <li><a  href="/docs/rss">RSS</a></li>
+	            <li><a  href="/docs/tools">Tools</a></li>
+              <li><a  href="/docs/deployment">Deployment</a></li>
+              <li><a  href="/docs/trouble">Troubleshooting</a></li>
+            </ul>
+          </aside>
+          <main>
+          <h2>Posts</h2>
+<p>Posts are special <a href="/docs/pages">pages</a> that live in
+<a href="/docs/directory"><code>posts</code></a>.  You can use a different directory for posts with the
+<a href="/docs/config"><code>posts.dir</code></a> in your <code>_cobalt.yml</code>.</p>
+<h3>Drafts</h3>
+<p>Cobalt supports leaving posts in &quot;draft&quot; state. Drafts will not be
+rendered unless Cobalt is run with the <code>--drafts</code> flag.</p>
+<p>To mark a post as draft you can either set <code>is_draft: true</code> in your
+<a href="/docs/front">frontmatter</a> or add it to the drafts folder
+(<a href="/docs/directory"><code>_drafts</code></a> by <a href="/docs/config">default</a>).</p>
+<h2>Pagination</h2>
+<p>This feature is currently experimental and need to be enabled by installing Cobalt <a href="https://cobalt-org.github.io/docs/install">from
+source</a> with the <code>pagination-unstable</code> feature.</p>
+<p>Currently, we can paginate on all posts only, sorted by date or title.</p>
+<h3>Activation</h3>
+<p>In the page that will be used as the index, turn on the pagination feature in the
+frontmatter. All non mandatory fields have a default value as show below:</p>
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#c0c5ce;">---
+</span><span style="background-color:#2b303b;color:#bf616a;">pagination</span><span style="background-color:#2b303b;color:#c0c5ce;">:
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">include</span><span style="background-color:#2b303b;color:#c0c5ce;">: </span><span style="background-color:#2b303b;color:#a3be8c;">All // mandatory
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">per_page</span><span style="background-color:#2b303b;color:#c0c5ce;">: </span><span style="background-color:#2b303b;color:#d08770;">5 
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">permalink</span><span style="background-color:#2b303b;color:#c0c5ce;">: &quot;</span><span style="background-color:#2b303b;color:#a3be8c;">/{{parent}}/{{include}}/_p/{{ num }}/</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">order</span><span style="background-color:#2b303b;color:#c0c5ce;">: </span><span style="background-color:#2b303b;color:#a3be8c;">Desc
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">sort_by</span><span style="background-color:#2b303b;color:#c0c5ce;">: [&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">published_date</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;]
+</span><span style="background-color:#2b303b;color:#c0c5ce;">---
+</span></pre><table><thead><tr><th>Setting                 </th><th> Format           </th><th> Description</th></tr></thead><tbody>
+<tr><td><code>include</code>               </td><td> <code>All</code>            </td><td> Defines how we index the posts, only <code>All</code> is available at the moment.</td></tr>
+<tr><td><code>per_page</code>              </td><td> Integer          </td><td> Defines how many posts we got per index.</td></tr>
+<tr><td><code>permalink</code>             </td><td> String           </td><td> Defines where the subsequent indexes after the first are stored.</td></tr>
+<tr><td><code>order</code>                 </td><td> <code>Desc</code> or <code>Asc</code>  </td><td> Defines the sorting order.</td></tr>
+<tr><td><code>sort_by</code>               </td><td> Array of Strings </td><td> Defines the sorting criteria.</td></tr>
+</tbody></table>
+<h3>Paginator</h3>
+<p>In a page with pagination activated, we access the posts through the <code>paginator</code> object
+instead of <code>collection</code>:</p>
+<table><thead><tr><th>Variable                   </th><th> Format           </th><th> Description</th></tr></thead><tbody>
+<tr><td><code>pages</code>                    </td><td> Array of Object  </td><td> The list of <a href="/docs/variables">pages objects</a> that belong to this pagination index.</td></tr>
+<tr><td><code>total_pages</code>              </td><td> Integer          </td><td> Total number of pages contained in this paginator.</td></tr>
+<tr><td><code>index</code>                    </td><td> Integer          </td><td> Current index.</td></tr>
+<tr><td><code>index_permalink</code>          </td><td> String           </td><td> The relative Url path of the current pagination index.</td></tr>
+<tr><td><code>total_indexes</code>            </td><td> Integer          </td><td> Total number of pagination pages created.</td></tr>
+<tr><td><code>previous_index_permalink</code> </td><td> String           </td><td> The relative Url of the previous page. Nil if no previous page is available.</td></tr>
+<tr><td><code>next_index_permalink</code>     </td><td> String           </td><td> The relative Url of the next page in the pagination. Nil if there is no next page available.</td></tr>
+<tr><td><code>first_index_permalink</code>    </td><td> String           </td><td> The relative Url of the first page in the pagination.</td></tr>
+<tr><td><code>last_index_permalink</code>     </td><td> String           </td><td> The relative Url of the last page in the pagination.</td></tr>
+</tbody></table>
+
+          </main>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="inner">
+  <p>Made with ❤️  by the Cobalt contributors</p>
+</div>
+
+    </footer>
+  </body>
+</html>
